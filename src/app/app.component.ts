@@ -8,8 +8,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'x';
-  header = [
+  public header = [
     {
       id: 'a',
       label: 'Lorem',
@@ -67,7 +66,8 @@ export class AppComponent {
       label: 'Sit Amet',
     },
   ];
-  data = [
+
+  public data = [
     {
       a: 'Cell 0-0',
       b: 'Cell 1-0',
@@ -93,25 +93,26 @@ export class AppComponent {
       z: 'Cell 4-3',
     },
   ];
-  options = [];
 
-  onActionClicked(data: any) {
+  public options = [];
+
+  public onActionClicked(data: any): void {
     console.log('onActionClicked', data);
   }
 
-  onCellClicked(data: any) {
+  public onCellClicked(data: any): void {
     console.log('onCellClicked', data);
   }
 
-  onColumnClicked(data: any) {
+  public onColumnClicked(data: any): void {
     console.log('onColumnClicked', data);
   }
 
-  onPageClicked(data: any) {
+  public onPageClicked(data: any): void {
     console.log('onPageClicked', data);
   }
 
-  onRowClicked(data: any) {
+  public onRowClicked(data: any): void {
     console.log('onRowClicked', data);
   }
 }

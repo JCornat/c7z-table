@@ -7,22 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input('header') set header(data: any) {
-    const header = this.processHeader(data);
-    this._header = header;
+    this._header = this.processHeader(data);
     console.log('header', data);
-    this.init();
   }
 
   @Input('data') set data(data: any) {
     this._data = data;
     console.log('data', data);
-    this.init();
   }
 
   @Input('options') set options(data: any) {
     this._options = data;
     console.log('options', data);
-    this.init();
   }
 
   @Output('onColumnClicked') public onColumnClicked = new EventEmitter<any>();
@@ -39,7 +35,8 @@ export class TableComponent implements OnInit {
     //
   }
 
-  ngOnInit() {
+  public ngOnInit() {
+    //
   }
 
   public init(): void {
