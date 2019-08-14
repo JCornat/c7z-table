@@ -3,29 +3,94 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    
+    <c7z-table [header]="header" [data]="data" [options]="options" (onActionClicked)="onActionClicked($event)" (onCellClicked)="onCellClicked($event)" (onColumnClicked)="onColumnClicked($event)" (onPageClicked)="onPageClicked($event)" (onRowClicked)="onRowClicked($event)"></c7z-table>
   `,
   styles: []
 })
 export class AppComponent {
   title = 'x';
+  header = [
+    {
+      id: 'a',
+      label: 'Lorem',
+      order: 'ascending',
+      clickable: true,
+      styles: [
+        'italic',
+        'bold',
+      ],
+      display: {
+        extraSmall: true,
+        small: true,
+        medium: true,
+        large: true,
+        extraLarge: true,
+      }
+    },
+    {
+      id: 'b',
+      label: 'Ipsum',
+      order: 'descending',
+      clickable: true,
+      styles: [
+        'bold',
+      ],
+      display: {
+        extraSmall: true,
+        small: true,
+        medium: true,
+        large: false,
+        extraLarge: false,
+      }
+    },
+    {
+      id: 'c',
+      label: 'Dolor',
+      order: 'ascending',
+      clickable: true,
+      styles: [
+        'italic',
+      ],
+      display: {
+        extraSmall: false,
+        small: false,
+        medium: false,
+        large: true,
+        extraLarge: true,
+      }
+    },
+    {
+      id: 'd',
+      label: 'Sit Amet',
+    },
+  ];
+  data = [
+    {
+      a: '1',
+      b: '2',
+      c: '3',
+      d: '4',
+    }
+  ];
+  options = [];
+
+  onActionClicked(data: any) {
+    console.log('onActionClicked', data);
+  }
+
+  onCellClicked(data: any) {
+    console.log('onCellClicked', data);
+  }
+
+  onColumnClicked(data: any) {
+    console.log('onColumnClicked', data);
+  }
+
+  onPageClicked(data: any) {
+    console.log('onPageClicked', data);
+  }
+
+  onRowClicked(data: any) {
+    console.log('onRowClicked', data);
+  }
 }

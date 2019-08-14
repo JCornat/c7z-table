@@ -1,0 +1,24 @@
+<div class="header">
+  <ng-container *ngFor="let item of _header">
+    <div (click)="clickHeader(item, $event)">
+      <div class="label">
+        {{item.label}}
+      </div>
+
+      <ng-container *ngIf="item.order">
+        <div class="icon">
+          <ng-container *ngIf="item.order === 'ascending'">
+            A
+          </ng-container>
+          <ng-container *ngIf="item.order === 'descending'">
+            V
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+
+<div class="body">
+
+</div>
