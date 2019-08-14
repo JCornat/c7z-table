@@ -7,7 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   @Input('header') set header(data: any) {
-    this._header = data;
+    const header = this.processHeader(data);
+    this._header = header;
     console.log('header', data);
     this.init();
   }
@@ -45,13 +46,44 @@ export class TableComponent implements OnInit {
     console.log('init');
   }
 
-  public clickHeader(item: any, event?: Event): void {
+  public clickColumn(column: any, event?: Event): void {
     if (event instanceof Event) {
       event.stopPropagation();
       event.preventDefault();
     }
 
-    item.order = (!item.order) ? 'descending' : (item.order === 'descending') ? 'ascending' : null;
-    this.onColumnClicked.emit({id: item.id, order: item.order});
+    column.order = (!column.order) ? 'descending' : (column.order === 'descending') ? 'ascending' : null;
+    this.onColumnClicked.emit({id: column.id, order: column.order});
+  }
+
+  public clickRow(row: any, event?: Event): void {
+    if (event instanceof Event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    this.onRowClicked.emit(row);
+  }
+
+  public clickCell(row: any, column: any, event?: Event): void {
+    if (event instanceof Event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+
+    this.onCellClicked.emit({row, column});
+
+    this.clickRow(row); // Propagate to row
+  }
+
+  public processHeader(data: any[]): any[] {
+    const res = [];
+
+    for (const item of data) {
+      item.class = (item.size) ? item.size : 'flex';
+      res.push(item);
+    }
+
+    return res;
   }
 }
