@@ -15,6 +15,7 @@ export class AppComponent {
       label: 'Lorem',
       order: 'ascending',
       clickable: true,
+      size: 'flex-20',
       styles: [
         'italic',
         'bold',
@@ -31,6 +32,7 @@ export class AppComponent {
       id: 'b',
       label: 'Ipsum',
       order: 'descending',
+      size: 'flex-50',
       clickable: true,
       styles: [
         'bold',
@@ -51,6 +53,7 @@ export class AppComponent {
       styles: [
         'italic',
       ],
+      size: 'flex-20',
       display: {
         extraSmall: false,
         small: false,
@@ -66,11 +69,29 @@ export class AppComponent {
   ];
   data = [
     {
-      a: '1',
-      b: '2',
-      c: '3',
-      d: '4',
-    }
+      a: 'Cell 0-0',
+      b: 'Cell 1-0',
+      c: 'Cell 2-0',
+      d: 'Cell 3-0',
+    },
+    {
+      a: 'Cell 0-1',
+      b: 'Cell 1-1',
+      c: 'Cell 2-1',
+      d: 'Cell 3-1',
+    },
+    {
+      a: 'Cell 0-2',
+      c: 'Cell 2-2',
+      d: 'Cell 3-2',
+    },
+    {
+      a: 'Cell 0-3',
+      b: 'Cell 1-3',
+      c: 'Cell 2-3',
+      d: 'Cell 3-3',
+      z: 'Cell 4-3',
+    },
   ];
   options = [];
 
