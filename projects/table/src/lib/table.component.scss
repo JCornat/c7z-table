@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :host {
   width: 100%;
 }
@@ -22,9 +26,24 @@ $breakpoints: 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95;
 .header {
   display: flex;
   width: 100%;
+  padding: 12px 24px;
 
   .column {
+    padding-right: 10px;
+    width: 100%;
+    overflow: hidden;
     display: flex;
+
+    .label {
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -34,9 +53,24 @@ $breakpoints: 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95;
   .row {
     display: flex;
     width: 100%;
+    border-top: 1px solid black;
+    padding: 12px 24px;
 
     .column {
-      display: flex;
+      padding-right: 10px;
+      width: 100%;
+      overflow: hidden;
+
+      .label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &:hover {
+      background-color: rgba(0,0,0,0.1);
+      cursor: pointer;
     }
   }
 }
